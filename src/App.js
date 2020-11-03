@@ -16,6 +16,7 @@ import "./App.css";
 const App = () => {
   // Create a state called `posts` to hold the array of post objects, **initializing to dummyData**.
   const [posts, setPosts] = useState(dummyData);
+  const [searchTerm, setSearchTerm] = useState("");
   // This state is the source of truth for the data inside the app. You won't be needing dummyData anymore.
   // To make the search bar work (which is stretch) we'd need another state to hold the search term.
 
@@ -43,8 +44,8 @@ const App = () => {
     <div className='App'>
       {/* Add SearchBar and Posts here to render them */}
       {/* Check the implementation of each component, to see what props they require, if any! */}
-      <SearchBar />
-      <Posts posts={posts} likePost={likePost} />
+      <SearchBar st={[searchTerm, setSearchTerm]} />
+      <Posts posts={posts} likePost={likePost} searchTerm={searchTerm} />
     </div>
   );
 };
